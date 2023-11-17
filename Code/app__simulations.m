@@ -78,6 +78,7 @@ params.ss = 0;   % 1 (0) to (not) compute growth integrals
                  % ss = 4 - same as ss = 2, but large fluctuations (X > 0.05)
                  % ss = - 1 - condition for ss = 2 mistakenly fulfilled, but at least one
                  %            population changing monotonically
+                 % 'output.ss' regards inter-batch steady-state
 
 % *** 'sim__serial__interbatch' - inter-batch and following intra-batch dynamics
 % *** 'sim__serial__full_dynamics' - full dynamics

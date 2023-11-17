@@ -2,8 +2,8 @@ function output = sim__serial__interbatch(params, outfile)
 % Simulates a serial-dilution course for the given parameter values in
 % 'params', using MATLAB's built-in ODE solver. With an appropriate value
 % for 'max_batches', the process will continue until reaching a steady
-% state, or other distinct long-time behavior. It will also stop at any
-% point if only 1 species survives.
+% state of inter-batch dynamics, or other distinct long-time behavior. It
+% will also stop at any point if only 1 species survives.
 % Returns the inter-batch data (values at dilutions) as a structure
 % 'output'. It will optionally: (1) plot the inter-batch dynamics and the
 % following intra-batch dynamics (if params.plt = 1), (2) compute growth
