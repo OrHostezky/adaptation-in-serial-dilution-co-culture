@@ -25,7 +25,7 @@
 %%% 'Code' section, see README.md file. For a more specific script-
 %%% description, look at each script specifically.
 
-clear;clc;
+clear; clc;
 
 %% Set simulation parameters
 % Data-saving path (recommended form: '../Data/Raw/{SIMULATION_NAME}.mat')
