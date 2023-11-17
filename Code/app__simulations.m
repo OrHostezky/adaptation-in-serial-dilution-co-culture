@@ -2,8 +2,11 @@
 % This script directly applies the two main simulation types in this
 % repository, based on a system of species that compete for resources (i.e.
 % nutrients) in batches, where growth follows consumption (until depletion).
-% Each simulation will optionally save data and / or plot the recorded
-% dynamics.
+% The framework here includes the possibility for species to adapt to
+% nutrient concentrations (however, adaptation is strictly limited to the
+% 2-nutrient case!), and a few models of adaptation are built in to the
+% system, with a capacity to add more with relative ease. Each simulation
+% will optionally save data and / or plot the recorded dynamics.
 
 % The two simulation types are:
 % (1) A serial-dilution process: consecutive batches, where species are
