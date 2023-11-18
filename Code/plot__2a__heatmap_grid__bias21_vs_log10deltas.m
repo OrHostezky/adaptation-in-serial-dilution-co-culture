@@ -10,7 +10,7 @@ function plot__2a__heatmap_grid__bias21_vs_log10deltas(dir_name)
 
 %% Initialize
 col_tab = readtable(['..', filesep, 'Data', filesep, 'Collected', filesep, ...
-    'collected_', dir_name, '.csv']);
+    'collected__', dir_name, '.csv']);
 
 % Constant parameters
 model = col_tab.model;

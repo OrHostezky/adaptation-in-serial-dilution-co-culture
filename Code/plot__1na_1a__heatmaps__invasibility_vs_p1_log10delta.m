@@ -30,7 +30,7 @@ for dd = 1:length(d)
     figure
 
     % Axes
-    ax = axes('Position', [0.12, 0.13, 0.65, 0.74]);
+    ax = axes('Position', [.2, .17, .52, .67]);
     if model == 1 || model == 2
         imagesc(2 * p1s - 1, log10deltas_to_c0, is_invaded)    
     elseif model == 3
@@ -40,7 +40,7 @@ for dd = 1:length(d)
     
     % Colormap
     colormap(lines(3))
-    colorbar(ax, 'Position', [0.78, 0.13, 0.03, 0.74], 'Ticks', 1:3, ...
+    colorbar(ax, 'Position', [.73, .17, .03, .67], 'Ticks', 1:3, ...
         'TickLabels', {'Mutual invasibility', 'Adaptor invades', ...
         'Non-adaptor invades'}, 'TickLabelInterpreter', 'latex')
     clim([0.5, 3.5])
@@ -61,15 +61,15 @@ for dd = 1:length(d)
         '\quad E_\sigma = \;', mat2str(params.E, 2), '\quad \alpha_0 = \;', ...
         mat2str(params.alpha0)];
     if model == 1
-        sbtitle = [sbtitle, '\quad Ctrl0 = \;', ...
+        sbtitle = [sbtitle, '\quad Ctrl_0 = \;', ...
             mat2str(params.ctrl0(params.is_adaptor == 1)), '$'];
     elseif model == 2 || model == 3
         sbtitle = [sbtitle, '\quad c_{preferred} = \;', ...
             mat2str(2 - params.ctrl0(params.is_adaptor == 1)), '$'];
     end
 
-    subtitle(sbtitle, 'Interpreter', 'latex', 'FontSize', 16)        
-    title('Adaptor VS Non-adaptor - invasibility heatmap', ...
+    subtitle(sbtitle, 'Interpreter', 'latex', 'FontSize', 12)        
+    title('Adaptor VS Non-adaptor - Invasibility', ...
         'Interpreter', 'latex', 'FontSize', 18)
 
     %% Save

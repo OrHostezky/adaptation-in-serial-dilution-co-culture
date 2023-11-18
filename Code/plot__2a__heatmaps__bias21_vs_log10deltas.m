@@ -9,7 +9,7 @@ function plot__2a__heatmaps__bias21_vs_log10deltas(dir_name)
 
 %% Initialize
 col_tab = readtable(['..', filesep, 'Data', filesep, 'Collected', filesep, ...
-    'collected_', dir_name, '.csv']);
+    'collected__', dir_name, '.csv']);
 
 % Constant parameters
 model = col_tab.model;
@@ -117,7 +117,7 @@ for k = 1:length(p1)
         end
 
         set(get(h, 'label'), 'string', ['$\frac{\rho_1^* - \rho_2^*}', ...
-            '{\rho_1^* + \rho_2^*}$'], 'Interpreter', 'latex', 'FontSize', 14)
+            '{\rho_1^* + \rho_2^*}$'], 'Interpreter', 'latex', 'FontSize', 18)
         legend()
         
         %% Title and save

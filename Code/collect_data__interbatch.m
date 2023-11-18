@@ -1,11 +1,13 @@
 function collect_data__interbatch(dir_name)
 % Collects wanted parameters and outputs of all finished inter-batch, 
 % serial-dilution simulations in folder 'dir_name' and organizes data in a
-% table, where each row corresponds to a single simulation.
+% table, where each row corresponds to a single simulation. Saves the table
+% in paths: '../Data/Raw/{dir_name}/collected.csv'
+%           '../Data/Collected/collected__{dir_name}.csv'
 
 %% Initialize
-d = dir(['..', filesep, 'Data', filesep, 'Raw', filesep, dir_name, ...
-    filesep, 'out*.mat']);
+path = ['..', filesep, 'Data', filesep];
+d = dir([path, 'Raw', filesep, dir_name, filesep, 'out*.mat']);
 alltab = table;
 row = 0;
 
@@ -70,14 +72,12 @@ for dd = 1:length(d)
 end
 
 %% Write data tables
-outfile_prefix = ['..', filesep, 'Data', filesep];
-
 disp('--------------------------------------------')
-outfile1 = [outfile_prefix, 'Raw', filesep, dir_name, filesep, 'collected.csv'];
+outfile1 = [path, 'Raw', filesep, dir_name, filesep, 'collected.csv'];
 writetable(sortrows(alltab, 'p1'), outfile1);
 disp(['Finished collecting to ', outfile1]);
 
-outfile2 = [outfile_prefix, 'Collected', filesep, 'collected_', dir_name, '.csv'];
+outfile2 = [path, 'Collected', filesep, 'collected__', dir_name, '.csv'];
 writetable(sortrows(alltab, 'p1'), outfile2);
 disp(['Finished collecting to ', outfile2]);
 disp('--------------------------------------------')

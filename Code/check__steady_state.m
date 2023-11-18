@@ -5,7 +5,7 @@ function unfinished = check__steady_state(dir_name)
 % array.
 
 col_tab = readtable(['..', filesep, 'Data', filesep, 'Collected', filesep, ...
-    'collected_', dir_name, '.csv']);
+    'collected__', dir_name, '.csv']);
 unfinished = find(col_tab.steady_state == 0);
 if isempty(unfinished)
     disp('No files found')
