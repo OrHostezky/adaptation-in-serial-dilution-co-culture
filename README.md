@@ -1,6 +1,6 @@
 # Adaptation in a Serial-Dilution Co-culture
 
-A consumer-resource modeling framework in a serial-dilution setup, where $m$ species compete for $p$ nutrients in a series of batches. At each batch, a nutrient mixture with a fixed composition $\{c_i(t=0)}_{i=1}^p$ and total amount 
+A consumer-resource modeling framework in a serial-dilution setup, where $m$ species compete for $p$ nutrients in a series of batches. At each batch, a nutrient mixture with a fixed composition $`\{c_i(t=0)}`_{i=1}^p$ and total amount 
 
 ## Script Index
 
