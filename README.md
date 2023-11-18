@@ -10,6 +10,9 @@ Dynamics within each batch are given by:
 ```math
 \frac{dc_i}{dt}=-\sum_{\sigma=1}^m \rho_\sigma j_{\sigma,i}
 ```
+```math
+\frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i^'=1}^p j_{\sigma,i^'}
+```
 
 ## Script Index
 
