@@ -3,9 +3,9 @@ function plot__2a__heatmaps__bias21_vs_log10deltas(dir_name)
 % co-culture, inter-batch simulations in dir_name, and plots a heatmap for
 % each combination of nutrient profile and Adaptor-2's enzyme budget,
 % displaying the steady state (or other distinct long-time behavior) bias
-% in population fractions, (rho*(1) - rho*(2)) / sum(rho*), vs adaptors'
-% sensing tolerances (Adaptor-1 (x), Adaptor-2 (y)). Saves the resulting
-% figure in '../Plots/'.
+% in population fractions, (rho*(1) - rho*(2)) / (rho*(1) + rho*(2)), vs
+% adaptors' sensing tolerances (Adaptor-1 (x), Adaptor-2 (y)). Saves the
+% resulting figure in '../Plots/'.
 
 %% Initialize
 col_tab = readtable(['..', filesep, 'Data', filesep, 'Collected', filesep, ...
