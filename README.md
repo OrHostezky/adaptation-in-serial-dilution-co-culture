@@ -24,30 +24,7 @@ The framework includes a few adaptation models (see [`app_simulations.m`](Code/a
 > [!NOTE]
 > **Here, the general structure of this repository's [*Code*](Code/) section and workflow are described. For a more specific script description, look at each script specifically.**
 
-* [`nearest_neighbors_2D_open.m`](Code/nearest_neighbors_2D_open.m) and [`coupling_nearest_neighbors_2D.m`](Code/coupling_nearest_neighbors_2D.m) are the most basic functions, regarding spin ineteractions in a given matrix.
 
-* The [`step__*.m`](Code/) functions execute the spin dynamics (a single algorithm-step) using the interaction functions, each of which 
-  adheres to a different algorithm and model.
-  <br> [`form_cluster.m`](Code/form_cluster.m) is a sub-function of the Wolff-algorithm step function.
-
-* [`cluster_size__wolff__2D_ising.m`](Code/cluster_size__wolff__2D_ising.m) finds the typical spin-cluster sizes in the Wolff algorithm at 
-  a given temperature.
-
-* The [`*_correlation.m`](Code/) functions regard the auto-correlation of the system between different steps (i.e. 'time' correlation), 
-  which helps to derive the system's decorrelation time, and thus to determine the needed number of steps between following measurements 
-  (in order to get meaningful data thermodynamically).
-  <br> [`plot__correlation.m`](Code/plot__correlation.m) is called by [`sim_correlation.m`](Code/sim_correlation.m).
-
-* The [`sim_*.m`](Code/) functions execute the actual simulations, and communnicate between the apply scripts and the step functions (or
-  [`find_correlation.m`](Code/find_correlation.m) in the case of [`sim_correlation.m`](Code/sim_correlation.m)). Their inner heirarchy is
-  as such:
-  <br>  $\quad\quad\quad\quad\quad\quad$  [`sim_temperatures.m`](Code/sim_temperatures.m)  $\quad \longmapsto \quad$  [`sim_smpl_avrg.m`](Code/sim_smpl_avrg.m)  $\quad \longmapsto \quad$  [`sim_basic.m`](Code/sim_basic.m)
-  <br> [`plot__M_E_C_X__vs__T.m`](Code/plot__M_E_C_X__vs__T.m) is called by [`sim_temperatures.m`](Code/sim_temperatures.m).
-
-* The [`app_*.m`](Code/) scripts are the main scripts that apply the simulation scheme, and are executed directly by the user.
-
-### General repository scheme:
-  $\quad$  **Apply scripts**  $\quad \longmapsto \quad$  **Simulation functions**  $\quad \longmapsto \quad$  **Step functions**  $\quad \longmapsto \quad$  **Basic interaction functions**
 
 
 ## Data and Plots
