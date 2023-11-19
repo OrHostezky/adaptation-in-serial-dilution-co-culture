@@ -8,14 +8,14 @@ Dynamics within each batch are given by [^1]:
 \frac{d\rho_\sigma}{dt}=\rho_\sigma \sum_{i=1}^p j_{\sigma,i}   \quad,
 ```
 ```math
-\frac{dc_i}{dt}=-\sum_{\sigma=1}^m \rho_\sigma j_{\sigma,i}   \quad,
-
-The main feature of this framework is the inclusion of species adaptation to changing nutrient levels throughout the batch. 
+\frac{dc_i}{dt}=-\sum_{\sigma=1}^m \rho_\sigma j_{\sigma,i}   \quad, 
 ```
+
+The main feature of this framework is the inclusion of species adaptation to changing nutrient levels throughout the batch, which is mediated by allowing the dynamics of the metabolic strategy, given by [^2]:
 ```math
 \frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i'=1}^p j_{\sigma,i'}
 ```
-
+This feature is *limited to the 2-nutrient case* ($p>2$ dynmics can be simulated with no adaptation).
 
 ## Script Index
 
@@ -26,4 +26,6 @@ The main feature of this framework is the inclusion of species adaptation to cha
 Data and corresponding figures are automatically saved with easily identifiable, corresponding file names (including the simulation type and important parameter values), in the [*Data*](Data/) and [*Plots*](Plots/) directories, respectively.
 
 
-[^1]: 
+[^1]: Amir Erez, Jaime G. Lopez, Benjamin G. Weiner, Yigal Meir, and Ned S. Wingreen. *Nutrient levels and trade-offs control diversity in a serial dilution ecosystem*. **eLife**, September 2020 [Go to paper](https://doi.org/10.7554/eLife.57790).
+
+[^2]: Amir Erez, Jaime G. Lopez, Yigal Meir, and Ned S. Wingreen. *Enzyme regulation and mutation in a model serial-dilution ecosystem*. **Physical Review E**, October 2021 [Go to papar](https://pubmed.ncbi.nlm.nih.gov/34781576/).
