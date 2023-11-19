@@ -1,7 +1,7 @@
 function [iszero, isterm, dir] = eventfun1(t, x, K, p, E, delta, ctrl, is_adaptor)
 % Stops integration when: (1) one of the species is about to switch enzyme
 % production (Model-1 adaptation), (2) the norm of the changes in the
-% nutrients and populations is smaller than 10^-8, (3) t = 1000.
+% nutrients and species density is smaller than 10^-8, (3) t = 1000.
 
 m = length(E); % Species no.
 

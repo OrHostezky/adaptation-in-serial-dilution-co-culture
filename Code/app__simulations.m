@@ -1,12 +1,16 @@
 
 % This script directly applies the two main simulation types in this
-% repository, based on a system of species that compete for resources (i.e.
-% nutrients) in batches, where growth follows consumption (until depletion).
+% repository, and is mainly for execution of a limited number of simulations
+% or gathering specific, immediate results. To apply large simulation
+% arrays, it is recommended to follow the Split-Apply-Combine protocol,
+% using the .cmd execution files (see '../README.md').
+% The simulations are based on a system of species that compete for
+% resources (i.e. nutrients) in batches, where growth follows consumption.
 % The framework here includes the possibility for species to adapt to
 % nutrient concentrations (however, adaptation is strictly limited to the
-% 2-nutrient case!), and a few models of adaptation are built in to the
-% system, with a capacity to add more with relative ease. Each simulation
-% will optionally save data and / or plot the recorded dynamics.
+% 2-nutrient case!), and a few models of adaptation (see below) are built
+% in to the system, with a capacity to add more with relative ease (for
+% fuller system details and explicit dynamics, see '../README.md').
 
 % The two simulation types are:
 % (1) A serial-dilution process: consecutive batches, where species are
@@ -18,19 +22,22 @@
 % with the aim of characterizing the long-time behavior, whereas
 % 'full_dynamics' suffix means that the whole time-course is recorded.
 % (2) Invasibility tests: introducing a miniscule population of a species
-% into a much larger population of another, and vice versa, and simulate a
-% batch in both cases, with the aim of characterizing invasibility (see
+% into a much larger population of another, and vice versa, and simulating
+% a batch in both cases, with the aim of characterizing invasibility (see
 % 'sim__invasibility_map'). Invasibility character is mapped across a
 % domain of parameters. Currently, takes into account a non-adaptor vs
 % adaptor co-culture.
 
+% Each simulation will optionally save data and / or plot the recorded
+% dynamics.
+
 %%% NOTE: For a desription of the general structure of this repository's
-%%% 'Code' section, see README.md file. For a more specific script-
-%%% description, look at each script specifically.
+%%% 'Code' section, see Script Index section in '../README.md' file. For a
+%%% more specific script description, look at each script specifically.
 
 clear; clc;
 
-%% Set simulation parameters
+%% Set simulation parameters (+ Annotation glossary)
 % Data-saving path (recommended form: '../Data/Raw/{SIMULATION_NAME}.mat')
 %outfile = '../Data/Raw/2a__log10c0_0__p1_0.5__E_[1_1]__log10delta_[0_0]__ctrl0_[1_0].mat';
 outfile = []; % Use for not saving data
@@ -38,12 +45,12 @@ outfile = []; % Use for not saving data
 % Nutrients
 p1 = 0.95; 
 params.log10c0 = 2;                            % Total amount (log)
-params.K = 1;                                  % Monod constant
+params.K = 1;                                  % Monod constant [c0]
 params.p = 2;                                  % Nutrient no. (2 for adaptation!)
 params.P = [p1; 1 - p1];                       % Profile
 
 % Species
-params.rho0 = 1;                               % Total amount
+params.rho0 = 1;                               % Total amount [c0]
 params.m = 2;                                  % Species no.
 params.b0 = zeros(params.m, 1) + 1 / params.m; % Profile
 
@@ -51,15 +58,15 @@ params.b0 = zeros(params.m, 1) + 1 / params.m; % Profile
 params.E = [1, 1];                             % Budgets
 params.alpha0 = [[1; 0] .* params.E', ...
     params.E' - [1; 0] .* params.E'];          % Initial strategies alpha(#Sp., #Nut.)(t = 0)
-params.log10delta = params.log10c0 - [1, 1];   % Sensing tolerances (log) ([Delta] = [c0])
-params.ctrl0 = [1; 0];                         % Initial enzyme productions / nutriet preferences:
+params.log10delta = params.log10c0 - [1, 1];   % Sensing tolerances [c0] (log)
+params.ctrl0 = [1; 0];                         % Initial enzyme productions / nutrient preferences:
                                                % 1 (0) - Nutrient-1 (2))
 
 params.is_adaptor = ones(1, params.m);         % 'Identities': 1 (0) for adaptor (non-adaptor)
 params.model = 1;                              % The 3 adaptation regimes (i.e. 'models'): 
                                                % 1 - Relative-difference "bang-bang" adaptors
                                                % 2 - Preffered-nutrient "bang-bang" adaptors
-                                               % 3 - Tolerance "Monod" adaptors
+                                               % 3 - Tolerance "Monod" adaptors (preferred nutrient)
                   
 % Control
 %%% NOTE: 'params.pltE', 'params.ss', and 'output.ss' are relevant only
@@ -78,7 +85,7 @@ params.ss = 0;   % 1 (0) to (not) compute growth integrals
                  % ss = 4 - same as ss = 2, but large fluctuations (X > 0.05)
                  % ss = - 1 - condition for ss = 2 mistakenly fulfilled, but at least one
                  %            population changing monotonically
-                 % 'output.ss' regards inter-batch steady-state
+                 % 'output.ss' regards the inter-batch steady-state
 
 % *** 'sim__serial__interbatch' - inter-batch and following intra-batch dynamics
 % *** 'sim__serial__full_dynamics' - full dynamics
