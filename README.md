@@ -15,7 +15,7 @@ The main feature of this framework is the inclusion of species adaptation to cha
 ```math
 \frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i'=1}^p j_{\sigma,i'}
 ```
-This feature is *limited to the 2-nutrient case* ($p>2$ is possible with no adaptation).
+
 
 ## Script Index
 
