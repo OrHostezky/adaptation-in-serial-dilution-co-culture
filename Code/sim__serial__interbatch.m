@@ -286,7 +286,7 @@ end
 
 %% Determine long-time behavior ('steady-state')
 if ss1 == cond || sum(output.pop_frac == 0) == m - 1
-    ss = 1;     % "Exact"
+        ss = 1; % "Exact"
 elseif ss2 == cond    
     if max(rho_end_im) < 0.02
         ss = 2; % Small fluctuations

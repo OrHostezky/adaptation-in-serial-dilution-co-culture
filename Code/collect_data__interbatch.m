@@ -31,6 +31,7 @@ for dd = 1:length(d)
         tempstruct.b0 = params.b0(1);
         tempstruct.log10c0 = params.log10c0;
         tempstruct.p1 = params.P(1);
+        
         for i = 1:params.m
             name = ['E', num2str(i)];
             tempstruct.(name) = params.E(i);
@@ -54,11 +55,13 @@ for dd = 1:length(d)
             tempstruct.(name) = mean(output.alpha(i, 1, round(0.9 * ...
                 end) : end)) / params.E(i); % Mean long-time strategy
         end
+        
         tempstruct.batches = size(output.rho, 2) - 1;
         tempstruct.steady_state = output.ss;
-        %tempstruct.S = - sum((output.pop_frac) .* ...
-        %    log(output.pop_frac)); % Shannon entropy
-        
+        tempstruct.S = - sum((output.pop_frac) .* ...
+            log(output.pop_frac)); % Shannon entropy
+        %tempstruct.growth_int = output.growth_int;
+
         % Add to table
         temptab = struct2table(tempstruct);
         temptab.fullname{1} = fullname;
