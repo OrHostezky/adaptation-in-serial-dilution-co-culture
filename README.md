@@ -16,7 +16,9 @@ The main feature of this framework is the inclusion of species adaptation to cha
 \frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i'=1}^p j_{\sigma,i'}   \quad,
 ```
 where $\mathbb{P}_{\sigma,i}$ is an indicator function which is 1 whenever species $\sigma$ produces enzyme $i$, and 0 otherwise. An adaptor population can only produce a single enzyme-type at a time.
-The framework includes a few adaptation models (see [`app_simulations.m`](Code/app_simulation.m)), and is receptible to the addition of different models that may work in this context. Note that this *adaptation* feature is based on the *2-nutrient* case and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
+The framework includes a few adaptation models (see [`app_simulations.m`](Code/app_simulation.m)) that operate under these guidelines, and is receptible to the addition of different models that may work in this context. Note that this *adaptation* feature is based on the *2-nutrient* case and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
+
+The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-Kutta solver with adaptive step size. Simulations can be applied in a specific, instant manner, or by executing and collecting data from large sets of simulations in paralel, using the Split-Apply-Combine method (see [Script Index](#script-index) for protocol).
 
 
 ## Script Index
@@ -24,7 +26,19 @@ The framework includes a few adaptation models (see [`app_simulations.m`](Code/a
 > [!NOTE]
 > **Here, the general structure of this repository's [*Code*](Code/) section and workflow are described. For a more specific script description, look at each script specifically.**
 
+* [`odefun.m`](Code/odefun.m) and the [`eventfun*.m`](Code/) functions (1 for each adaptation model) are the most basic functions, used by `ode89` to solve for the dynamics. [`odefun.m`](Code/odefun.m) contains the actual dynamics, while the [`eventfun*.m`](Code/) functions are used to track events througout the dynamics.
 
+* The [`sim__*.m`](Code/) functions execute the actual simulations, and communnicate between the apply scripts and the.................................. Their inner heirarchy is
+  as such:
+  <br>  $\quad\quad\quad\quad\quad\quad$  [`sim_temperatures.m`]()  $\quad \longmapsto \quad$  [`sim_smpl_avrg.m`]()  $\quad \longmapsto \quad$  [`sim_basic.m`]()
+  <br> [`plot__M_E_C_X__vs__T.m`]() is called by [`sim_temperatures.m`]().
+
+* The [`app__*.m`](Code/) scripts are the main scripts that apply the simulation scheme, and are executed directly by the user.
+
+### Split-Apply-Combine
+
+### General repository scheme:
+  $\quad$  **Apply scripts**  $\quad \longmapsto \quad$  **Simulation functions**  $\quad \longmapsto \quad$  **Step functions**  $\quad \longmapsto \quad$  **Basic interaction functions**
 
 
 ## Data and Plots
