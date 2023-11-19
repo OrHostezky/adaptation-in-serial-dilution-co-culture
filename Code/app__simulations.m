@@ -37,7 +37,7 @@
 
 clear; clc;
 
-%% Set simulation parameters (+ Annotation glossary)
+%% Set simulation parameters (+ parameter description)
 % Data-saving path (recommended form: '../Data/Raw/{SIMULATION_NAME}.mat')
 %outfile = '../Data/Raw/2a__log10c0_0__p1_0.5__E_[1_1]__log10delta_[0_0]__ctrl0_[1_0].mat';
 outfile = []; % Use for not saving data
