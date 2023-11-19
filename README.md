@@ -16,7 +16,7 @@ The main feature of this framework is the inclusion of species adaptation to cha
 \frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i'=1}^p j_{\sigma,i'}   \quad,
 ```
 where $\mathbb{P}_{\sigma,i}$ is an indicator function which is 1 whenever species $\sigma$ produces enzyme $i$, and 0 otherwise. An adaptor population can only produce a single enzyme-type at a time.
-The framework includes a few adaptation models (see [`app_simulations.m`](Code/app_simulation.m)), and is receptible to the addition of different models that may work in this context. Note that this **adaptation** feature is based on the **2-nutrient case** and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
+The framework includes a few adaptation models (see [`app_simulations.m`](Code/app_simulation.m)), and is receptible to the addition of different models that may work in this context. Note that this *adaptation* feature is based on the *2-nutrient case* and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
 
 
 ## Script Index
