@@ -54,7 +54,7 @@ The power of this method is in its modular nature – jobs can be applied indepe
 #### Protocol:
   $\quad\quad\quad$  [`split_runs__*.m`](Code/)  $\quad \longmapsto \quad$  [`app__slurm__*.cmd`](Code/)  $\quad \longmapsto \quad$  [`collect_data__interbatch.m`](Code/collect_data__interbatch.m)*  $\quad \longmapsto \quad$  [`plot__*.m`](Code/)
 
-* If needed 
+\* If needed 
 
 
 
