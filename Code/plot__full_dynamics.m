@@ -64,5 +64,5 @@ elseif model == 2 || model == 3
         filename_suffix];
 end
 
-saveas(gcf, [filename, '.fig'])
 saveas(gcf, [filename, '.png'])
+hgsave(gcf, [filename, '.fig'], '-v7.3')

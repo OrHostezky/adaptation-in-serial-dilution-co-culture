@@ -123,5 +123,5 @@ subtitle(ax, sbtitle, 'Interpreter', 'latex', 'FontSize', 16)
 %title(ax, "Adaptor's Mean Strategy distribution-heatmap", ...
 %    'Interpreter', 'latex', 'FontSize', 18)
 
-saveas(gcf, [filename '.png'])
-hgsave(gcf, [filename '.fig'], '-v7.3')
+saveas(gcf, [filename, '.png'])
+hgsave(gcf, [filename, '.fig'], '-v7.3')
