@@ -1,11 +1,12 @@
 function plot__2a__heatmap_grid__bias21_vs_log10deltas(dir_name)
-% Reads a collected-data table of an inter-batch simulation set in dir_name
-% of 2 equal-budget, equal enzyme-production value adaptors, and plots a
-% 3x3 grid of heatmaps - one for each combination of total nutrient amount
-% and nutrient profile (there MUST be 3 * 3 = 9 combinations in the set!) -
-% displaying the steady state (or other distinct long-time behavior) bias
-% in population fractions, (rho*(1) - rho*(2)) / (rho*(1) + rho*(2)), vs
-% adaptors' sensing tolerances (Adaptor-1 (x), Adaptor-2 (y)). Saves the
+% Reads a collected-data table '../Data/Collected/collected_{dir_name}.csv'
+% of an inter-batch simulation set in '../Data/Raw/{dir_name}' of 2 equal-
+% budget, equal enzyme-production value adaptors, and plots a 3x3 grid of
+% heatmaps - one for each combination of total nutrient amount and nutrient
+% profile (there MUST be 3 * 3 = 9 combinations in the set!) -  each of
+% which displaying the steady state (or other distinct long-time behavior)
+% bias in population fractions, (rho*(1) - rho*(2)) / (rho*(1) + rho*(2)),
+% vs adaptors' sensing tolerances (Adaptor-1 (x), Adaptor-2 (y)). Saves the
 % resulting figure in '../Plots/'.
 
 %% Initialize

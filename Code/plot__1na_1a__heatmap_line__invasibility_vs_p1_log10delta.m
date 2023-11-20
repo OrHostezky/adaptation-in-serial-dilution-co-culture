@@ -1,15 +1,15 @@
 function plot__1na_1a__heatmap_line__invasibility_vs_p1_log10delta(dir_name, ...
     ctrl0, log10c0s)
 % Reads data from a set of 2-species co-culture, invasiblity-map simulations
-% in dir_name, and plots a 4-heatmap subplot-line, such that all maps
-% correspond to adaptor's enzyme-production value in 'ctrl0' and total
-% nutrient amounts in 'log10c0s' (MUST contain 4 values!). Each heatmap
+% in '../Data/Raw/{dir_name}', and plots a 4-heatmap subplot-line, such that
+% all maps correspond to adaptor's enzyme-production value in 'ctrl0' and
+% total nutrient amounts in 'log10c0s' (MUST contain 4 values!). Each heatmap
 % displays the invasibility character (index 1-3, see 'sim__invasibility_map'
 % for details) vs nutrient profile bias (x) and adaptor's sensing tolerance
 % (y). Saves the resulting figure in '../Plots/'.
 
-%%% NOTE: Here, a co-culture of a non-adaptor (Sp. 1) and an adaptor
-%%% (Sp. 2) is considered.
+%%% NOTE: Here, a co-culture of a non-adaptor (Sp. 1) and an adaptor (Sp. 2)
+%%% is considered.
 
 %% Initialize
 figure('Renderer', 'painters', 'Position', 100 * [1, 1, 8, 2.2])

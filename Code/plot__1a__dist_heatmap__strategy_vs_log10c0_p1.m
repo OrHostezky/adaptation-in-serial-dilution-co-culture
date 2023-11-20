@@ -1,10 +1,10 @@
 function plot__1a__dist_heatmap__strategy_vs_log10c0_p1(dir_name)
 % Reads data from a set of fixed sensing tolerance, 1-adaptor full-dynamics
-% simulations in dir_name, and plots a heatmap, displaying the mean
-% metabolic strategy (excluding transient) vs total nutrient amount (x),
-% and nutrient profile bias (y), where in each x-y combination, the
-% distribution of the strategy is plotted. Saves the resulting figure in
-% '../Plots/'.
+% simulations in '../Data/Raw/{dir_name}', and plots a heatmap, displaying
+% the mean metabolic strategy (excluding transient) vs total nutrient
+% amount (x), and nutrient profile bias (y), where in each x-y combination,
+% the distribution of the strategy is plotted. Saves the resulting figure
+% in '../Plots/'.
 
 %% Initialize
 % Load table

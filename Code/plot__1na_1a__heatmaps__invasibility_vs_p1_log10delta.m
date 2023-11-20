@@ -1,12 +1,12 @@
 function plot__1na_1a__heatmaps__invasibility_vs_p1_log10delta(dir_name)
 % Reads data from a set of 2-species co-culture, invasiblity-map simulations
-% in dir_name, and plots a heatmap for each map, displaying the invasibility
-% character (index 1-3, see 'sim__invasibility_map' for details) vs nutrient
-% profile bias (x) and adaptor's sensing tolerance (y). Saves the resulting
-% figure in '../Plots/'.
+% in '../Data/Raw/{dir_name}', and plots a heatmap for each map, displaying
+% the invasibility character (index 1-3, see 'sim__invasibility_map' for
+% details) vs nutrient profile bias (x) and adaptor's sensing tolerance (y).
+% Saves the resulting figure in '../Plots/'.
 
-%%% NOTE: Here, a co-culture of a non-adaptor (Sp. 1) and an adaptor
-%%% (Sp. 2) is considered.
+%%% NOTE: Here, a co-culture of a non-adaptor (Sp. 1) and an adaptor (Sp. 2)
+%%% is considered.
 
 d = dir(['..', filesep, 'Data', filesep, 'Raw', filesep, dir_name, ...
     filesep, 'out*.mat']);

@@ -1,9 +1,10 @@
 function plot__2a__heatmaps__bias21_vs_log10deltas(dir_name)
-% Reads a collected-data table of a set of fixed nutrient amount, 2-adaptor
-% co-culture, inter-batch simulations in dir_name, and plots a heatmap for
-% each combination of nutrient profile and Adaptor-2's enzyme budget,
-% displaying the steady state (or other distinct long-time behavior) bias
-% in population fractions, (rho*(1) - rho*(2)) / (rho*(1) + rho*(2)), vs
+% Reads a collected-data table '../Data/Collected/collected_{dir_name}.csv'
+% of a set of fixed nutrient amount, 2-adaptor co-culture, inter-batch
+% simulations in '../Data/Raw/{dir_name}', and plots a heatmap for each
+% combination of nutrient profile and Adaptor-2's enzyme budget, displaying
+% the steady state (or other distinct long-time behavior) bias in
+% population fractions, (rho*(1) - rho*(2)) / (rho*(1) + rho*(2)), vs
 % adaptors' sensing tolerances (Adaptor-1 (x), Adaptor-2 (y)). Saves the
 % resulting figure in '../Plots/'.
 
