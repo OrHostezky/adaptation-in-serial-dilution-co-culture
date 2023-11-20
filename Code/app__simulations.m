@@ -2,7 +2,7 @@
 % This script directly applies the two main simulation types in this
 % repository, and is mainly for execution of a limited number of simulations
 % or gathering specific, immediate results. To apply large simulation
-% arrays, it is recommended to follow the Split-Apply-Combine protocol,
+% sets, it is recommended to follow the Split-Apply-Combine protocol,
 % using the .cmd (SLURM) execution files (see '../README.md').
 % The simulations are based on a system of species that compete for
 % resources (i.e. nutrients) in batches, where growth follows consumption.
