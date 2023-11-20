@@ -6,6 +6,8 @@ function plot__1a__dist_heatmap__strategy_vs_log10c0_p1(dir_name)
 % the distribution of the strategy is plotted. Saves the resulting figure
 % in '../Plots/'.
 
+%%% NOTE: Uses v7.3 for saving data (can be a very large file!).
+
 %% Initialize
 % Load table
 path = ['..', filesep, 'Data', filesep, 'Raw', filesep, dir_name];

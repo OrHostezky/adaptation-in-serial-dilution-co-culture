@@ -3,6 +3,8 @@ function plot__full_dynamics(t, x, c0, P, E, delta, model, batches)
 % values, icluding relative species populations and their metabolic
 % strategies. Saves the resulting figure in '../Plots/Raw/'.
 
+%%% NOTE: Uses v7.3 for saving data (can be a very large file!).
+
 %% Initialize
 m = length(E); % Species no.
 if m == 2

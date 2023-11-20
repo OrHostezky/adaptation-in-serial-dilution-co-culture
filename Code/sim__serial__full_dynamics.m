@@ -7,7 +7,7 @@ function output = sim__serial__full_dynamics(params, outfile)
 % save the data in a file in path 'outfile' (if not empty) every 10^4
 % batches and at the end of the simulation.
 
-%%% NOTE: Uses v7.3 for saving data.
+%%% NOTE: Uses v7.3 for saving data (can be a very large data file!).
 
 %% Check for existing data
 if ~ isempty(outfile)
