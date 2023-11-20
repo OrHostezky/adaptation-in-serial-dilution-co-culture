@@ -73,16 +73,16 @@ for l = 1:length(p1)
 
             if sum(isnan(ss_0)) < numel(ss_0)
                 plot(ss_0(:, 1) - log10c0(k), ss_0(:, 2) - log10c0(k), 'xk', ...
-                    'MarkerSize', 8, 'HandleVisibility', 'off')
+                    'MarkerSize', 6, 'HandleVisibility', 'off')
                 % OR: 'DisplayName', 'No state detection'
             end
             if sum(isnan(ss_3)) < numel(ss_3)
                 plot(ss_3(:, 1) - log10c0(k), ss_3(:, 2) - log10c0(k), '+k', ...
-                    'MarkerSize', 8, 'DisplayName', 'Moderate fluctuations')
+                    'MarkerSize', 6, 'DisplayName', 'Moderate fluctuations')
             end
             if sum(isnan(ss_4)) < numel(ss_4)
                 plot(ss_4(:, 1) - log10c0(k), ss_4(:, 2) - log10c0(k), '*k', ...
-                    'MarkerSize', 8, 'DisplayName', 'Large fluctuations')
+                    'MarkerSize', 6, 'DisplayName', 'Large fluctuations')
             end
         
         elseif model == 3
@@ -92,15 +92,15 @@ for l = 1:length(p1)
 
             if sum(isnan(ss_0)) < numel(ss_0)
                 plot(log10c0(k) - ss_0(:, 1), log10c0(k) - ss_0(:, 2), 'xk', ...
-                    'MarkerSize', 8, 'HandleVisibility', 'off')
+                    'MarkerSize', 6, 'HandleVisibility', 'off')
             end
             if sum(isnan(ss_3)) < numel(ss_3)
                 plot(log10c0(k) - ss_3(:, 1), log10c0(k) - ss_3(:, 2), '+k', ...
-                    'MarkerSize', 8, 'DisplayName', 'Moderate fluctuations')
+                    'MarkerSize', 6, 'DisplayName', 'Moderate fluctuations')
             end
             if sum(isnan(ss_4)) < numel(ss_4)
                 plot(log10c0(k) - ss_4(:, 1), log10c0(k) - ss_4(:, 2), '*k', ...
-                    'MarkerSize', 8, 'DisplayName', 'Large fluctuations')
+                    'MarkerSize', 6, 'DisplayName', 'Large fluctuations')
             end
         end
         

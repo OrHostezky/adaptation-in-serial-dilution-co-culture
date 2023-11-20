@@ -9,7 +9,7 @@
 % The framework here includes the possibility for species to adapt to
 % nutrient concentrations (however, adaptation is strictly limited to the
 % 2-nutrient case!), and a few models of adaptation (see below) are built
-% in to the system, with a capacity to add more with relative ease (for
+% in to the system, with the capacity to add more with relative ease (for
 % fuller system details and explicit dynamics, see '../README.md').
 
 % The two simulation types are:
@@ -38,15 +38,16 @@
 clear; clc;
 
 %% Set simulation parameters (+ parameter description)
-% Data-saving path (recommended form: '../Data/Raw/{SIMULATION_NAME}.mat')
-%outfile = '../Data/Raw/2a__log10c0_0__p1_0.5__E_[1_1]__log10delta_[0_0]__ctrl0_[1_0].mat';
-outfile = []; % Use for not saving data
+% Data-saving path (recommended form: '../Data/Raw/{SIMULATION_TYPE}__{param1}_{val1}__{...}.mat')
+outfile = ['../Data/Raw/interbatch__2a__model_1__log10c0_2__p1_0.6__E_[1_1]__', ...
+    'log10(delta_to_c0)_[-1_-2]__ctrl0_[1_0].mat']; % 2a - 2 adaptors
+%outfile = []; % Use for not saving data
 
 % Nutrients
-p1 = 0.95; 
+p1 = 0.75;                                     % Nutrient-1 fraction
 params.log10c0 = 2;                            % Total amount (log)
 params.K = 1;                                  % Monod constant [c0]
-params.p = 2;                                  % Nutrient no. (2 for adaptation!)
+params.p = 2;                                  % Nutrient no. (MUST be 2 for adaptation!)
 params.P = [p1; 1 - p1];                       % Profile
 
 % Species
@@ -57,8 +58,10 @@ params.b0 = zeros(params.m, 1) + 1 / params.m; % Profile
 % Enzymatics
 params.E = [1, 1];                             % Budgets
 params.alpha0 = [[1; 0] .* params.E', ...
-    params.E' - [1; 0] .* params.E'];          % Initial strategies alpha(#Sp., #Nut.)(t = 0)
-params.log10delta = params.log10c0 - [1, 1];   % Sensing tolerances [c0] (log)
+    params.E' - [1; 0] .* params.E'];          % Initial strategies (row - #Sp., col - #Nut.) 
+                                               % MUST hold:   sum(params.alpha0, 2) = params.E'
+
+params.log10delta = params.log10c0 - [1, 2];   % Sensing tolerances [c0] (log)
 params.ctrl0 = [1; 0];                         % Initial enzyme productions / nutrient preferences:
                                                % 1 (0) - Nutrient-1 (2))
 
@@ -71,7 +74,7 @@ params.model = 1;                              % The 3 adaptation regimes (i.e. 
 % Control
 %%% NOTE: 'params.pltE', 'params.ss', and 'output.ss' are relevant only
 %%% when executing the 'sim__serial__interbatch' function.
-params.max_batches = 30; % Batches cut-off
+params.max_batches = 120; % Batches cut-off
 
 params.plt = 1;  % 1 (0) to (not) plot results***
 params.pltE = 0; % 1 (0) to (not) plot enzyme budgets
@@ -92,29 +95,32 @@ params.ss = 0;   % 1 (0) to (not) compute and save growth integrals
 % *** 'sim__invasibility_map' - invasibility map
 
 %% Simulate
+%%% NOTE: For several simulations, consider creating a string vector for
+%%% 'outfile' with varying names (if needed).
 sim_type = 1; 
 
 % Serial dilution
 if sim_type == 1 || sim_type == 2
     % Determine moving-parameter values
     log10c0s = 2; % Start from large c0, typically faster simulation
-    p1s = .75;
-    log10deltas = log10c0s - [0, 2.5];
+    p1s = .6;
+    log10deltas_to_c0 = - [1, 2]; % Convenient to use Delta / c0
 
-    for i = 1:size(log10deltas, 1)
+    for i = 1:size(log10deltas_to_c0, 1)
         for j = 1:length(log10c0s)
-            for k=1:length(p1s)
+            for k = 1:length(p1s)
                 % Plug moving-parameter values
                 params.log10c0 = log10c0s(j);
                 params.P = [p1s(k); 1 - p1s(k)];
-                params.log10delta = log10deltas(i,:);
+                params.log10delta = log10c0s(j) + log10deltas_to_c0(i, :);
                 
+
                 % Record inter-batch dynamics
                 if sim_type == 1
-                    tic; sim__serial__interbatch(params, outfile); toc
+                    tic; output = sim__serial__interbatch(params, outfile); toc
                 % Record full dynamics
                 elseif sim_type == 2
-                    tic; sim__serial__full_dynamics(params, outfile); toc
+                    tic; output = sim__serial__full_dynamics(params, outfile); toc
                 end
             end
         end

@@ -69,15 +69,15 @@ for k = 1:length(p1)
     
             if sum(isnan(ss_0)) < numel(ss_0)
                 plot(ss_0(:, 1) - log10c0, ss_0(:, 2) - log10c0, 'xk', ...
-                    'MarkerSize', 50, 'DisplayName', 'No detection')
+                    'MarkerSize', 40, 'DisplayName', 'No detection')
             end
             if sum(isnan(ss_3)) < numel(ss_3)
                 plot(ss_3(:, 1) - log10c0, ss_3(:, 2) - log10c0, '+k', ...
-                    'MarkerSize', 50, 'DisplayName', 'Moderate fluctuations')
+                    'MarkerSize', 40, 'DisplayName', 'Moderate fluctuations')
             end
             if sum(isnan(ss_4)) < numel(ss_4)
                 plot(ss_4(:, 1)- log10c0, ss_4(:, 2) - log10c0, '*k', ...
-                    'MarkerSize', 50, 'DisplayName', 'Large fluctuations')
+                    'MarkerSize', 40, 'DisplayName', 'Large fluctuations')
             end
 
         elseif model == 3
@@ -87,15 +87,15 @@ for k = 1:length(p1)
     
             if sum(isnan(ss_0)) < numel(ss_0)
                 plot(log10c0 - ss_0(:, 1), log10c0 - ss_0(:, 2), 'xk', ...
-                    'MarkerSize', 50, 'DisplayName', 'No detection')
+                    'MarkerSize', 40, 'DisplayName', 'No detection')
             end
             if sum(isnan(ss_3)) < numel(ss_3)
                 plot(log10c0 - ss_3(:, 1), log10c0 - ss_3(:, 2), '+k', ...
-                    'MarkerSize', 50, 'DisplayName', 'Moderate fluctuations')
+                    'MarkerSize', 40, 'DisplayName', 'Moderate fluctuations')
             end
             if sum(isnan(ss_4)) < numel(ss_4)
                 plot(log10c0 - ss_4(:, 1), log10c0 - ss_4(:, 2), '*k', ...
-                    'MarkerSize', 50, 'DisplayName', 'Large fluctuations')
+                    'MarkerSize', 40, 'DisplayName', 'Large fluctuations')
             end
         end
                
@@ -147,7 +147,7 @@ for k = 1:length(p1)
 
         subtitle(sbtitle, 'Interpreter', 'latex', 'FontSize', 10)        
         title('Steady-state Populaion Bias VS Sensing Tolerances', ...
-            'Interpreter', 'latex')
+            'Interpreter', 'latex', 'FontSize', 14)
 
         saveas(gcf, [filename, '.fig'])
         saveas(gcf, [filename, '.png'])

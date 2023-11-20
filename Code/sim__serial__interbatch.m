@@ -80,11 +80,11 @@ switch_store = nan(m, max_batches);
 % Plug in existing data (if such exists)
 if ~ isempty(outfile)
     if exist(outfile, 'file') == 2
-        disp('Attempts to read existing outfile')
+        disp('Attempting to read existing outfile')
         try
             load(outfile,'output')
             if isfield(output, 'ss')
-                disp('Steady-state data already exists, returning')
+                disp('Complete data already exists, returning')
                 output = [];
                 return
             end
@@ -99,7 +99,7 @@ if ~ isempty(outfile)
                 pop_frac = output.pop_frac;
             end
             
-            disp(['Continues existing simulation from batch ', int2str(tb)])
+            disp(['Continuing existing simulation from batch ', int2str(tb)])
         
         catch
             warning('Failed loading, returning')

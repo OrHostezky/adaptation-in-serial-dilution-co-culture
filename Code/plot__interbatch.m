@@ -34,6 +34,7 @@ xlabel('Dilution number', 'Interpreter', 'latex')
 ylabel('Population / Enzyme-1 fraction at dilution', 'Interpreter', 'latex')
 legend(labels, 'Interpreter', 'latex')
 title('Inter-batch dynamics', 'Interpreter', 'latex')
+set(gca, 'Fontsize', 14)
 
 %% Subtitle
 sbtitle_prefix = ['$\textrm{Model} \;', int2str(model), '\quad c_0 = \; 10^{', ...
@@ -48,7 +49,7 @@ elseif model == 2 || model == 3
         mat2str(2 - ctrl0'), '\quad', sbtitle_suffix];
 end
 
-subtitle(sbtitle, 'Interpreter', 'latex', 'FontSize', 10)
+subtitle(sbtitle, 'Interpreter', 'latex', 'FontSize', 11)
 
 %% Save figure
 filename_prefix = ['..', filesep, 'Plots', filesep, 'Raw', filesep, int2str(m), ...

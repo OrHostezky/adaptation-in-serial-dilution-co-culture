@@ -8,9 +8,9 @@ function plot__intrabatch(t, x, state, c0, K, P, E, delta, ctrl0, model, batch)
 %% Initialize
 p = length(P); % Nutrient no.
 if p == 2
-    nutrient_cmap = ['k'; '#77AC30'];
+    nutrient_cmap = ['#000000'; '#77AC30'];
 else
-    nutrient_cmap = colormap(pink(p));
+    nutrient_cmap = colormap(bone(p));
 end
 
 m = length(E); % Species no.
@@ -21,7 +21,7 @@ else
 end
 
 figure
-sgtitle(['Intra-batch dynamics for batch #', int2str(batch)], ...
+sgtitle(['Intra-batch dynamics for batch $\#', int2str(batch), '$'], ...
     'Interpreter', 'latex')
 
 %% Plot nutrients and species
@@ -40,8 +40,8 @@ end
 
 xlim([0, t(end)])
 ylim([0, inf])
-xlabel('Time', 'Interpreter', 'latex')
-ylabel('Amount', 'Interpreter', 'latex')
+xlabel('Time', 'Interpreter', 'latex', 'FontSize', 13)
+ylabel('Amount', 'Interpreter', 'latex', 'FontSize', 13)
 legend(labels, 'Interpreter', 'latex', 'Location', 'best')
 
 %% Plot control states and strategies
@@ -62,9 +62,9 @@ labels(end) = '$c_1(t) > c_2(t)$';
 
 xlim([0, t(end)])
 ylim([0, 1])
-xlabel('Time', 'Interpreter', 'latex')
-ylabel('Enzyme-1 fraction', 'Interpreter', 'latex')
-legend(labels, 'Interpreter', 'latex', 'Location', 'southeast')
+xlabel('Time', 'Interpreter', 'latex', 'FontSize', 13)
+ylabel('Enzyme-1 fraction', 'Interpreter', 'latex', 'FontSize', 13)
+legend(labels, 'Interpreter', 'latex', 'Location', 'best')
 
 %% Plot growth rates
 % Compute growth rates
@@ -76,8 +76,8 @@ str(1) = 'Growth integrals:';
 for i = 1:m
     str(i + 1) = ['Sp. ', int2str(i), ': $', num2str(growth_int(i)), '$'];
 end
-annotation('texbatchox', [.72, 0, .3, .25], 'String', str, 'Interpreter', ...
-    'latex', 'FibatchoxToText', 'on', 'FontSize', 8)
+annotation('textbox', [.72, 0, .3, .25], 'String', str, 'Interpreter', ...
+    'latex', 'FitBoxToText', 'on', 'FontSize', 8)
 
 % Plot
 subplot(1, 3, 3)
@@ -90,8 +90,8 @@ end
 
 %set(gca, 'YScale', 'log'); % Use when rates decay exponentially
 xlim([0, t(end)])
-xlabel('Time', 'Interpreter', 'latex')
-ylabel('Growth rate', 'Interpreter', 'latex')
+xlabel('Time', 'Interpreter', 'latex', 'FontSize', 13)
+ylabel('Growth rate', 'Interpreter', 'latex', 'FontSize', 13)
 legend(labels, 'Interpreter', 'latex')
 
 %% Subtitle
@@ -107,7 +107,7 @@ elseif model == 2 || model == 3
         mat2str(2 - ctrl0'), '\quad', sbtitle_suffix];
 end
 
-subtitle(ax, sbtitle, 'Interpreter', 'latex', 'FontSize', 10)
+subtitle(ax, sbtitle, 'Interpreter', 'latex', 'FontSize', 11)
 
 %% Save figure
 filename_prefix = ['..', filesep, 'Plots', filesep, 'Raw', filesep, int2str(m), ...
