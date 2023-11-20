@@ -38,8 +38,18 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
 
 ### Split-Apply-Combine
 
-#### General repository scheme:
-  $\quad$  **Apply scripts**  $\quad \longmapsto \quad$  **Simulation functions**  $\quad \longmapsto \quad$  **Step functions**  $\quad \longmapsto \quad$  **Basic interaction functions**
+A common approach to data-analysis, aiming to implement large simulation sets in an orderly and effective way:
+
+1. **Split** - Produce a parameter table, such that each row contains values for all moving parameters (that vary between different simulations) for a certain simulation in the set, and a template-file to plug simulation parameters into. This is done here by the [`split_runs__*.m`](Code/) functions.
+
+3. **Apply** - Perform all jobs using a script that allocates resources and executes them independently in parallel. Each job uses the parameter template to plug values from a certain row in the split table, and performs a simulation. All set-simulations are directed to save raw data in the same directory. This is done here by the [`app__slurm__*.cmd`](Code/) files.
+
+4. **Combine** - Collect data synchronously from all saved raw-data files in the simulation set. Analyze/plot various dependencies. Collecting is done here either by using [`collect_data__interbatch.m`](Code/collect_data__interbatch.m) in the case of inter-batch simulations, or directy by some of the [`plot__*.m`](Code/) functions in other cases.
+
+The power of this method is in its modular nature – jobs can be applied independently; data from existing files can be collected independently at any point in time, regardless of currently running jobs.
+
+#### Protocol:
+  $\quad$  [`split_runs__*.m`](Code/)  $\quad \longmapsto \quad$  [`app__slurm__*.cmd`](Code/)  $\quad \longmapsto \quad$  [`collect_data__interbatch.m`](Code/collect_data__interbatch.m)*  $\quad \longmapsto \quad$  [`plot__*.m`](Code/)
 
 
 
