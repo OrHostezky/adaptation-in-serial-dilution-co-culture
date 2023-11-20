@@ -1,6 +1,6 @@
 # Adaptation in a Serial-Dilution Co-culture
 
-A consumer-resource modeling framework in a serial-dilution setup, where $m$ species compete for $p$ nutrients in a series of batches. At each batch, a nutrient mixture with a fixed composition $\lbrace c_i(t=0)\rbrace_{i=1}^p$ and total amount $c_0=\sum_i c_i(0)$. Similarly, a mixture of species $\lbrace\rho_\sigma(t=0)\rbrace_{\sigma=1}^m$ is added, with a fixed total amount $\rho_0=\sum_\sigma \rho_\sigma(0)$. Species grow until the depletion of nutrients, the culture is diluted, and a new batch starts, while keeping relative species populations.
+A consumer-resource modeling framework in a serial-dilution setup, where $m$ species compete for $p$ nutrients in a series of batches. At each batch, a nutrient mixture is supplied with a fixed composition $\lbrace c_i(t=0)\rbrace_{i=1}^p$ and total amount $c_0=\sum_i c_i(0)$. Similarly, a mixture of species $\lbrace\rho_\sigma(t=0)\rbrace_{\sigma=1}^m$ is added, with a fixed total amount $\rho_0=\sum_\sigma \rho_\sigma(0)$. Species grow until the depletion of nutrients, the culture is diluted, and a new batch starts, while keeping relative species populations.
 Each species has a *metbolic strategy*, $\vec{\alpha}_ \sigma$, which is a vector of enzyme levels, while given a fixed enzyme budget $E_\sigma=\sum_i \alpha_{\sigma,i}$, leading to a metabolic trade-off. Nutrient consumption rates are given by $j_{\sigma,i}=\frac{c_i}{K+c_i}\alpha_{\sigma,i}$.
 
 Dynamics within each batch are given by [^1]:
@@ -11,14 +11,14 @@ Dynamics within each batch are given by [^1]:
 \frac{dc_i}{dt}=-\sum_{\sigma=1}^m \rho_\sigma j_{\sigma,i}   \quad.
 ```
 
-The main feature of this framework is the inclusion of species adaptation to changing nutrient levels throughout the batch, by allowing the dynamics of the metabolic strategy, given by [^2]:
+The main feature of this framework is the inclusion of *species adaptation to changing nutrient levels* throughout the batch, by allowing the dynamics of the metabolic strategies, given by [^2]:
 ```math
 \frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i'=1}^p j_{\sigma,i'}   \quad,
 ```
 where $\mathbb{P}_{\sigma,i}$ is an indicator function which is 1 whenever species $\sigma$ produces enzyme $i$, and 0 otherwise. An adaptor population can only produce a single enzyme-type at a time.
-The framework includes a few adaptation models (see [`app_simulations.m`](Code/app_simulation.m)) that operate under these guidelines, and is receptible to the addition of different models that may work in this context. Note that this *adaptation* feature is based on the *2-nutrient* case and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
+The framework includes a few adaptation models (see [`app__simulations.m`](Code/app__simulation.m)) that operate under these guidelines, and is receptible to the addition of different models that may work in this context. Note that this adaptation feature is based on the *2-nutrient* case and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
 
-The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-Kutta solver with adaptive step size. Simulations can be applied in a specific, instant manner, or by executing and collecting data from large sets of simulations in paralel, using the Split-Apply-Combine method (see [Script Index](#script-index) for protocol).
+The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-Kutta solver with adaptive step size. Simulations can be applied in a specific, instant manner, or by executing and collecting data from large sets of simulations in parallel, using the Split-Apply-Combine method (see [Script Index](#script-index) for protocol).
 
 
 ## Script Index
@@ -26,7 +26,7 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
 > [!NOTE]
 > **Here, the general structure of this repository's [*Code*](Code/) section and workflow are described. For a more specific script description, look at each script specifically.**
 
-* [`odefun.m`](Code/odefun.m) and the [`eventfun*.m`](Code/) functions (1 for each adaptation model) are the most basic functions, used by `ode89` to solve for the dynamics. [`odefun.m`](Code/odefun.m) contains the actual dynamics, while the [`eventfun*.m`](Code/) functions are used to track events througout the dynamics.
+* [`odefun.m`](Code/odefun.m) and the [`eventfun*.m`](Code/) functions (one for each adaptation model) are the most basic functions, used by `ode89` to solve for the dynamics. [`odefun.m`](Code/odefun.m) contains the actual dynamics, while the [`eventfun*.m`](Code/) functions are used to track events througout the dynamics.
 
 * The [`sim__*.m`](Code/) functions execute the actual simulations, and communnicate between the apply scripts and the.................................. Their inner heirarchy is
   as such:
