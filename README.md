@@ -11,14 +11,14 @@ Dynamics within each batch are given by [^1]:
 \frac{dc_i}{dt}=-\sum_{\sigma=1}^m \rho_\sigma j_{\sigma,i}   \quad.
 ```
 
-The main feature of this framework is the inclusion of *species adaptation to changing nutrient levels* throughout the batch, by allowing the dynamics of the metabolic strategies, given by [^2]:
+The main feature of this framework is the inclusion of species *adaptation* to changing nutrient levels throughout the batch, by allowing the dynamics of the metabolic strategies, given by [^2]:
 ```math
 \frac{d\alpha_{\sigma,i}}{dt}=(\mathbb{P}_{\sigma,i} E_\sigma-\alpha_{\sigma,i})\sum_{i'=1}^p j_{\sigma,i'}   \quad,
 ```
 where $\mathbb{P}_{\sigma,i}$ is an indicator function which is 1 whenever species $\sigma$ produces enzyme $i$, and 0 otherwise. An adaptor population can only produce a single enzyme-type at a time.
 The framework includes a few adaptation models (see [`app__simulations.m`](Code/app__simulation.m)) that operate under these guidelines, and is receptible to the addition of different models that may work in this context. Note that this adaptation feature is based on the *2-nutrient* case and thus is limited to $p=2$ (however, $p=1$ and $p>2$ dynmics can be simulated with no adaptation).
 
-The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-Kutta solver with adaptive step size. Simulations can be applied in a specific, instant manner, or by executing and collecting data from large sets of simulations in parallel, using the Split-Apply-Combine method (see [Script Index](#script-index) for protocol).
+The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-Kutta solver with adaptive step size. Simulations can be applied in a specific, instant manner, or by executing and collecting data in parallel from large sets of simulations, using the Split-Apply-Combine method (see [Script Index](#script-index) for protocol).
 
 
 ## Script Index
@@ -28,8 +28,10 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
 
 * [`odefun.m`](Code/odefun.m) and the [`eventfun*.m`](Code/) functions (one for each adaptation model) are the most basic functions, used by `ode89` to solve for the dynamics. [`odefun.m`](Code/odefun.m) contains the actual dynamics, while the [`eventfun*.m`](Code/) functions are used to track events througout the dynamics.
 
-* The [`sim__*.m`](Code/) functions execute the actual simulations, and communnicate between the apply scripts and the.................................. Their inner heirarchy is
-  as such:
+* The [`sim__*.m`](Code/) functions carry out the actual simulations (for simulation types, see [`app__simulations.m`](Code/app__simulation.m)). [`sim__batch.m`](Code/sim__batch.m) is the most basic of these, which solves for the dynamics within each batch, and is executed by the other, higher [`sim__*.m`](Code/) functions (except for [`sim__invasibility_map.m`](Code/sim__invasibility_map.m) which uses it indirectly). All functions may optionally plot the results, and (except for [`sim__batch.m`](Code/sim__batch.m)) save the data. The high-end functions [`sim__serial__interbatch.m`](Code/sim__serial__interbatch.m), [`sim__full_dynamics.m`](Code/sim__full_dynamics.m), and [`sim__invasibility_map.m`](Code/sim__invasibility_map.m) are executed using the apply scripts (see below).
+
+* 
+  Their inner heirarchy is as such:
   <br>  $\quad\quad\quad\quad\quad\quad$  [`sim_temperatures.m`]()  $\quad \longmapsto \quad$  [`sim_smpl_avrg.m`]()  $\quad \longmapsto \quad$  [`sim_basic.m`]()
   <br> [`plot__M_E_C_X__vs__T.m`]() is called by [`sim_temperatures.m`]().
 
