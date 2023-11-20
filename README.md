@@ -52,7 +52,9 @@ A common approach to data-analysis, aiming to implement large simulation sets in
 The power of this method is in its modular nature – jobs can be applied independently; data from existing files can be collected independently at any point in time, regardless of currently running jobs.
 
 #### Protocol:
-  $\quad$  [`split_runs__*.m`](Code/)  $\quad \longmapsto \quad$  [`app__slurm__*.cmd`](Code/)  $\quad \longmapsto \quad$  [`collect_data__interbatch.m`](Code/collect_data__interbatch.m)*  $\quad \longmapsto \quad$  [`plot__*.m`](Code/)
+  $\quad\quad\quad$  [`split_runs__*.m`](Code/)  $\quad \longmapsto \quad$  [`app__slurm__*.cmd`](Code/)  $\quad \longmapsto \quad$  [`collect_data__interbatch.m`](Code/collect_data__interbatch.m)*  $\quad \longmapsto \quad$  [`plot__*.m`](Code/)
+
+* If needed 
 
 
 
