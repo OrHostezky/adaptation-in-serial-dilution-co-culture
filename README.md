@@ -75,12 +75,10 @@ Here are some of these figures:
    <figcaption> 1 Adaptor - Metabolic Strategy distributions (Tip: to simulate a single species, use 2 identical species) </figcaption>
 </figure>
 
-
 <figure>
    <img src="Plots/Invasibility__model_1.png" width="600" height="330">
    <figcaption> Adaptor VS Non-Adaptor - Invasibility Character </figcaption>
 </figure>
-
 
 <figure>
    <img src="Plots/2a__heatmap_grid__bias21_vs_log10deltas__model_1__log10c0_[-2;0;2]__p1_[0.55;0.75;0.95]__E_[1 1]__log10(deltas_to_c0)_-2.5to0.png" width="600" height="300">
