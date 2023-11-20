@@ -75,7 +75,7 @@ params.max_batches = 30; % Batches cut-off
 
 params.plt = 1;  % 1 (0) to (not) plot results***
 params.pltE = 0; % 1 (0) to (not) plot enzyme budgets
-params.ss = 0;   % 1 (0) to (not) compute growth integrals
+params.ss = 0;   % 1 (0) to (not) compute and save growth integrals
                  % Output (output.ss):
                  % ss = 0 - no steady-state has been reached / unclear (simulate more batches)
                  % ss = 1 - "exact" steady-state has been reached
