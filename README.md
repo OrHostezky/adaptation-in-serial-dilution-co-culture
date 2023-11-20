@@ -67,7 +67,7 @@ The power of this method is in its modular nature – jobs can be applied indepe
 Data and corresponding figures are automatically saved with easily identifiable, corresponding file names (including the simulation type and important parameter values), in the [*Data*](Data/) and [*Plots*](Plots/) directories, respectively. Their general structure and a generic sample of data and figures are embedded here inside both directories.
 
 Here are some of these figures:
-<img src="Plots/Raw/2sp__model_1__log10c0_0__p1_0.75__E_[1 1]__log10delta_[-3 -1]__20_batches__full.png">
+<img src="Plots/Raw/2sp__model_1__log10c0_0__p1_0.75__E_[1 1]__log10delta_[-3 -1]__20_batches__full.png" width="400">
 <img src="Plots/1a__dist_heatmap__strategy_vs_log10c0_p1__model_1__log10c0_-2to2__p1_0.5to1__log10(delta_to_c0)_-2.png">
 <img src="Plots/Invasibility__model_1.png">
 <img src="Plots/2a__heatmap_grid__bias21_vs_log10deltas__model_1__log10c0_[-2;0;2]__p1_[0.55;0.75;0.95]__E_[1 1]__log10(deltas_to_c0)_-2.5to0.png">
