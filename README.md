@@ -21,6 +21,7 @@ The framework includes a few adaptation models (see [`app__simulations.m`](Code/
 The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-Kutta solver with adaptive step size. Simulations can be applied in a specific, instant manner, or by executing and collecting data in parallel from large sets of simulations, using the Split-Apply-Combine method (see [Script Index](#script-index) for protocol).
 
 
+
 ## Script Index
 
 > [!NOTE]
@@ -28,14 +29,13 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
 
 * [`odefun.m`](Code/odefun.m) and the [`eventfun*.m`](Code/) functions (one for each adaptation model) are the most basic functions, used by `ode89` to solve for the dynamics. [`odefun.m`](Code/odefun.m) contains the actual dynamics, while the [`eventfun*.m`](Code/) functions are used to track events througout the dynamics.
 
-* The [`sim__*.m`](Code/) functions carry out the actual simulations (for simulation types, see [`app__simulations.m`](Code/app__simulations.m)). [`sim__batch.m`](Code/sim__batch.m) is the most basic of these, which solves for the dynamics within each batch, and is executed by the other, higher [`sim__*.m`](Code/) functions (except for [`sim__invasibility_map.m`](Code/sim__invasibility_map.m) which uses it indirectly). All functions may optionally plot the results, and (except for [`sim__batch.m`](Code/sim__batch.m)) save the data. The high-end functions [`sim__serial__interbatch.m`](Code/sim__serial__interbatch.m), [`sim__full_dynamics.m`](Code/sim__full_dynamics.m), and [`sim__invasibility_map.m`](Code/sim__invasibility_map.m) are executed using the apply scripts (see below).
+* The [`sim__*.m`](Code/) functions carry out the actual simulations (for simulation types, see [`app__simulations.m`](Code/app__simulations.m)). [`sim__batch.m`](Code/sim__batch.m) is the most basic of these, which solves for the dynamics within each batch, and is executed by the other, higher [`sim__*.m`](Code/) functions (except for [`sim__invasibility_map.m`](Code/sim__invasibility_map.m) which uses it indirectly). All functions may optionally plot the results, and (except for [`sim__batch.m`](Code/sim__batch.m)) save the data. The high-end functions [`sim__serial__interbatch.m`](Code/sim__serial__interbatch.m), [`sim__serial__full_dynamics.m`](Code/sim__serial__full_dynamics.m), and [`sim__invasibility_map.m`](Code/sim__invasibility_map.m) are executed using the apply scripts (see below).
 
-* 
-  Their inner heirarchy is as such:
-  <br>  $\quad\quad\quad\quad\quad\quad$  [`sim_temperatures.m`]()  $\quad \longmapsto \quad$  [`sim_smpl_avrg.m`]()  $\quad \longmapsto \quad$  [`sim_basic.m`]()
-  <br> [`plot__M_E_C_X__vs__T.m`]() is called by [`sim_temperatures.m`]().
+* The [`app__*.m`](Code/) scripts are the main scripts that apply the simulations, and are directly used by the user for setting parameter values and execute the simulations. [`app__simulations.m`](Code/app__simulations.m) is used for running specific simulations, whereas the [`app__slurm__*.cmd`](Code/) files are used for implementing large simulation sets in parallel (see [below](#split-apply-combine)).
 
-* The [`app__*.m`](Code/) scripts are the main scripts that apply the simulation scheme, and are executed directly by the user.
+* ff
+
+
 
 ### Split-Apply-Combine
 
@@ -43,9 +43,11 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
   $\quad$  **Apply scripts**  $\quad \longmapsto \quad$  **Simulation functions**  $\quad \longmapsto \quad$  **Step functions**  $\quad \longmapsto \quad$  **Basic interaction functions**
 
 
+
 ## Data and Plots
 
 Data and corresponding figures are automatically saved with easily identifiable, corresponding file names (including the simulation type and important parameter values), in the [*Data*](Data/) and [*Plots*](Plots/) directories, respectively.
+
 
 
 
