@@ -1,7 +1,8 @@
 function rho = sim__invasibility(params)
 % Simulates a single, high-precision batch of growth for the given
 % parameter values in 'params', using MATLAB's built-in ODE solver, with
-% the purpose of charactarizing invasibility.
+% the purpose of charactarizing invasibility (index 1-3, see
+% 'sim__invasibility_map' for details).
 % Returns relative species populations at the end of the batch 'rho'. It
 % will optionally plot the intra-batch dynamics (if params.plt = 1).
 
