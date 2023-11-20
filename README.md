@@ -22,6 +22,7 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
 
 
 
+
 ## Script Index
 
 > [!NOTE]
@@ -36,6 +37,7 @@ The dynamics are numerically solved for using *MATLAB*'s built-in `ode89` Runga-
 * The [`plot__*.m`](Code/) functions are used to plot the dynamics or other results (raw or collected data). Some are 'raw' plotters, which are used directly by the [`sim__*.m`](Code/) functions to plot the results from a single simulation, and have a name corresponding to their simulation function. Others may collect the data from large sets of simulations, either by reading raw-data files or a collected-data table (in the case of inter-batch simulations).
 
 
+
 ### Split-Apply-Combine
 
 A common approach to data-analysis, aiming to implement large simulation sets in an orderly and effective way:
@@ -46,10 +48,11 @@ A common approach to data-analysis, aiming to implement large simulation sets in
 3. **Apply** - Perform all jobs using a script that allocates resources and executes them independently in parallel. Each job uses the parameter template to plug values from a certain row in the split table, and performs a simulation. All set-simulations are directed to save raw data in the same directory.
    <br> This is done here by the [`app__slurm__*.cmd`](Code/) files.
 
-4. **Combine** - Collect data synchronously from all saved raw-data files in the simulation set. Analyze/plot various dependencies.
+4. **Combine** - Collect data into a table synchronously from all saved raw-data files in the simulation set. Analyze/plot various dependencies.
    <br> Collecting is done here either by using [`collect_data__interbatch.m`](Code/collect_data__interbatch.m) in the case of inter-batch simulations, or directy by some of the [`plot__*.m`](Code/) functions in other cases.
 
 The power of this method is in its modular nature – jobs can be applied independently; data from existing files can be collected independently at any point in time, regardless of currently running jobs.
+
 
 #### Protocol:
   $\quad\quad\quad$  [`split_runs__*.m`](Code/)  $\quad \longmapsto \quad$  [`app__slurm__*.cmd`](Code/)  $\quad \longmapsto \quad$  [`collect_data__interbatch.m`](Code/collect_data__interbatch.m)*  $\quad \longmapsto \quad$  [`plot__*.m`](Code/)
@@ -58,9 +61,12 @@ The power of this method is in its modular nature – jobs can be applied indepe
 
 
 
+
 ## Data and Plots
 
-Data and corresponding figures are automatically saved with easily identifiable, corresponding file names (including the simulation type and important parameter values), in the [*Data*](Data/) and [*Plots*](Plots/) directories, respectively.
+Data and corresponding figures are automatically saved with easily identifiable, corresponding file names (including the simulation type and important parameter values), in the [*Data*](Data/) and [*Plots*](Plots/) directories, respectively. Their general structure and a generic sample of data and figures are embedded here inside both directories.
+
+
 
 
 
