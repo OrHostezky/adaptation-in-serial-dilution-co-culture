@@ -72,12 +72,12 @@ Here are some of these figures:
 
 <figure>
    <img src="Plots/1a__dist_heatmap__strategy_vs_log10c0_p1__model_1__log10c0_-2to2__p1_0.5to1__log10(delta_to_c0)_-2.png" width="600" height="450">
-   <figcaption> 1 Adaptor - Metabolic Strategy: distributions at all parameter combination, colors represent mean values. *To simulate a single species, use two identical species*. </figcaption>
+   <figcaption> 1 Adaptor - Metabolic Strategy distributions (Tip: to simulate a single species, use two identical species) </figcaption>
 </figure>
 
 <figure>
    <img src="Plots/Invasibility__model_1.png" width="600" height="330">
-   <figcaption> Adaptor VS Non-Adaptor - Invasibility character (see [`sim__invasibility_map.m`](Code/sim__invasibility_map.m)) </figcaption>
+   <figcaption> Adaptor VS Non-Adaptor - Invasibility character </figcaption>
 </figure>
 
 <figure>
