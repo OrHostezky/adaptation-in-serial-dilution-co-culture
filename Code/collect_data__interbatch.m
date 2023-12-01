@@ -15,7 +15,7 @@ row = 0;
 for dd = 1:length(d)
     % Load
     fullname = [dir_name, filesep, d(dd).name];
-    fullpath = ['..', filesep, 'Data', filesep, 'Raw', filesep, fullname];
+    fullpath = [path, 'Raw', filesep, fullname];
     disp(['Reading ', fullname])
     try
         load(fullpath, 'output', 'params')
