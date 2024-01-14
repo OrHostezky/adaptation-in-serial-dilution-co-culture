@@ -17,14 +17,14 @@
 % diluted at the end of each batch to start anew, while keeping the
 % population profile at dilution. All batches start with the same supply
 % (amount and profile), as provided by the user.
-% The two 'sim__serial*' functions simulate this process: 'interbatch'
+% The two sim__serial*() functions simulate this process: 'interbatch'
 % suffix means that the state of the system is recorded only at dilutions,
 % with the aim of characterizing the long-time behavior, whereas
 % 'full_dynamics' suffix means that the whole time-course is recorded.
 % (2) Invasibility tests: introducing a miniscule population of a species
 % into a much larger population of another, and vice versa, and simulating
 % a batch in both cases, with the aim of characterizing invasibility (see
-% 'sim__invasibility_map'). Invasibility character is mapped across a
+% sim__invasibility_map()). Invasibility character is mapped across a
 % domain of parameters. Currently, takes into account a non-adaptor vs
 % adaptor co-culture.
 
