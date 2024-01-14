@@ -7,10 +7,10 @@ function split_runs__serial
 % simulation accordingly.
 % These simulations are to be applied by the wanted 'app__slurm__serial*'
 % SLURM function, which allocates resources and executes the corresponding
-% 'sim__serial*' function for all simulations in parallel.
+% sim__serial*() function for all simulations in parallel.
 
 %% Set parameters (use defaults for moving parameters)
-%%% NOTE: For parameter description, see 'app__simulations'.
+%%% NOTE: For parameter description, see 'app__simulations.m'.
 
 % Directory name (recommended form: '{SIMULATION_TYPE}__{param1}_{val1}__{...}')
 dir_name = ['interbatch__2a__model_1__log10c0_[-2_0_2]__p1_[0.55_0.75_0.95]', ...
