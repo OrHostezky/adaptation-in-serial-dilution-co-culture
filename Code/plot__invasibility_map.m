@@ -1,6 +1,6 @@
 function plot__invasibility_map(p1s, log10deltas, is_invaded, params, rho_pre)
 % Plots a heatmap displaying the invasibility character in a 2-species co-
-% culture (index 1-3, see 'sim__invasibility_map' for details) vs nutrient
+% culture (index 1-3, see sim__invasibility_map() for details) vs nutrient
 % profile bias (x) and adaptor's sensing tolerance (y). Saves the resulting
 % figure in '../Plots/Raw/'.
 
