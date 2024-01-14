@@ -6,14 +6,14 @@ function split_runs__invasibility
 % and a parameter template 'params.mat', into which moving parameters are
 % assigned for each simulation accordingly.
 % These simulations are to be applied by the 'app__slurm__invasibility'
-% SLURM function, which allocates resources and executes the
-% 'sim__invasibility' function for all simulations in parallel.
+% SLURM function, which allocates resources and executes
+% sim__invasibility_map() for all simulations in parallel.
 
 %%% NOTE: Map ranges ('p1s', 'log10deltas') and initial pre-existing
 %%% species population ('rho_pre') are defined inside the SLURM script.
 
 %% Set parameters (use defaults for moving parameters)
-%%% NOTE: For parameter description, see 'app__simulations'.
+%%% NOTE: For parameter description, see 'app__simulations.m'.
 
 % Directory name (recommended form: '{SIMULATION_TYPE}__{param1}_{val1}__{...}')
 dir_name = ['invasibility__1na_1a__model_1__log10c0_-2to2__p1_0.5to1__E_[1_1]__', ...
