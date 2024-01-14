@@ -4,7 +4,7 @@ function plot__1na_1a__heatmap_line__invasibility_vs_p1_log10delta(dir_name, ...
 % in '../Data/Raw/{dir_name}', and plots a 4-heatmap subplot-line, such that
 % all maps correspond to adaptor's enzyme-production value in 'ctrl0' and
 % total nutrient amounts in 'log10c0s' (MUST contain 4 values!). Each heatmap
-% displays the invasibility character (index 1-3, see 'sim__invasibility_map'
+% displays the invasibility character (index 1-3, see sim__invasibility_map()
 % for details) vs nutrient profile bias (x) and adaptor's sensing tolerance
 % (y). Saves the resulting figure in '../Plots/'.
 
