@@ -82,7 +82,8 @@ Here are some of these figures:
 </figure>
 
 <figure>
-   <img src="Plots/2a__heatmap_grid__bias21_vs_log10deltas__model_1__log10c0_[-2;0;2]__p1_[0.55;0.75;0.95]__E_[1 1]__log10(deltas_to_c0)_-2.5to0.png" width="600" height="300">
+   <img src="Plots
+/2a__heatmap_grid__bias21_vs_log10deltas__model_1__log10c0_[-2;0;2]__p1_[0.55;0.75;0.95]__E_[1 1]__log10(deltas_to_c0)_-2.5to0.png" width="600" height="300">
    <figcaption> 2 Adaptors - Steady-State Populaion Bias VS Sensing Tolerances </figcaption>
 </figure>
 
